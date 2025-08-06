@@ -1,0 +1,359 @@
+/* Color Variables */
+:root {
+    --primary-bg: #111111; /* Near-black background */
+    --secondary-bg: #1A1A1A; /* Slightly lighter dark gray for sections/cards */
+    --text-color: #F0F0F0; /* Off-white for main text */
+    --light-text: #AAAAAA; /* Lighter gray for secondary text */
+    --accent-color: #FF0000; /* Vibrant red for highlights */
+    --accent-hover: #E00000; /* Slightly darker red on hover */
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling for anchor links */
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Better font rendering */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+    transform: translateY(-1px); /* Subtle lift on hover */
+}
+
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-color);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: rgba(17, 17, 17, 0.9); /* Semi-transparent dark header */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800; /* Extra bold */
+    color: var(--text-color);
+    letter-spacing: -0.5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem; /* Increased spacing */
+}
+
+nav ul li a {
+    color: var(--light-text);
+    font-weight: 500;
+    position: relative;
+}
+
+nav ul li a::after { /* Underline effect on hover */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+#hero {
+    padding: 12rem 0 8rem; /* More vertical padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height */
+    text-align: center;
+    background: linear-gradient(180deg, var(--primary-bg) 0%, #0a0a0a 100%); /* Subtle gradient */
+}
+
+#hero h1 {
+    font-size: 3.8rem; /* Larger font size */
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--light-text);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 1rem 2.5rem; /* Larger padding */
+    border-radius: 8px; /* More rounded corners */
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4); /* Glow effect */
+}
+
+.cta-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight scale */
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.6);
+}
+
+/* --- About Section --- */
+#about {
+    padding: 8rem 0;
+    background-color: var(--secondary-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separator */
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem; /* Increased gap */
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .about-grid {
+        grid-template-columns: 0.8fr 1.2fr; /* Asymmetrical layout */
+        text-align: left;
+    }
+}
+
+.about-image {
+    text-align: center;
+}
+
+.about-image img {
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); /* Deeper shadow */
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-text h2 {
+    text-align: left;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+}
+
+.download-cv {
+    align-self: flex-start;
+    margin-top: 1rem;
+}
+
+/* --- Projects Section --- */
+#projects {
+    padding: 8rem 0;
+    background-color: var(--primary-bg);
+}
+
+#projects h2 {
+    margin-bottom: 3rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem; /* Slightly increased gap */
+    margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    }
+}
+
+.project-card {
+    background-color: var(--secondary-bg);
+    border-radius: 12px; /* More rounded corners */
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
+}
+
+.project-card:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    background-color: #252525; /* Slightly lighter on hover */
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px; /* Slightly taller images */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05); /* Zoom image on hover */
+}
+
+.project-info {
+    padding: 1.8rem; /* More padding */
+}
+
+.project-info h3 {
+    font-size: 1.4rem; /* Larger project title */
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.project-info p {
+    font-size: 1rem;
+    color: var(--light-text);
+    margin-top: 0.8rem;
+}
+
+/* --- Footer & Contact --- */
+footer {
+    background-color: var(--secondary-bg);
+    text-align: center;
+    padding: 6rem 0 3rem; /* More padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer h2 {
+    font-size: 3rem; /* Larger contact heading */
+    margin-bottom: 1rem;
+}
+
+footer p {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.contact-links {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem; /* Increased gap between links */
+}
+
+.contact-link {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    padding: 0.7rem 1.5rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-link:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border-color: var(--accent-color); /* Keep border same color on hover */
+    transform: translateY(-2px);
+}
+
+.copyright {
+    margin-top: 4rem; /* More spacing */
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 767px) {
+    h1 {
+        font-size: 2.5rem !important;
+    }
+    h2 {
+        font-size: 2rem !important;
+    }
+    #hero {
+        padding: 8rem 0 4rem;
+    }
+    nav ul {
+        display: none; /* Hide nav links on small screens for simplicity, could add a hamburger menu */
+    }
+    header .container {
+        justify-content: center; /* Center logo if no nav links */
+    }
+    .about-text h2 {
+        text-align: center;
+    }
+    .download-cv {
+        align-self: center;
+    }
+}
